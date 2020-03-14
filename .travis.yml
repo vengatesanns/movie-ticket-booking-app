@@ -2,6 +2,10 @@ language: java
 jdk:
   - openjdk8
 
-before_install: cd ./microservices/user/service/
-script: ./mvn clean install
+script: 
+   - cd /microservices/userservice/
+   - ./mvn clean install
+
+notifications:
+   email: vengat19amd@gmail.com
 

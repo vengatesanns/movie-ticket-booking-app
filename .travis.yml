@@ -3,8 +3,8 @@ jdk:
   - openjdk8
 
 script: 
-   - cd /microservices/userservice/
-   - ./mvn clean install
+   - ls -a
+   - ./mvnw clean install
 
 notifications:
    email: vengat19amd@gmail.com

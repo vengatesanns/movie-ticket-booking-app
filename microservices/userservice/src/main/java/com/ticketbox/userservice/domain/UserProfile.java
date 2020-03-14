@@ -1,11 +1,13 @@
 package com.ticketbox.userservice.domain;
 
+import java.util.UUID;
+
 import lombok.Data;
 
 @Data
 public class UserProfile {
 
-	private String customerId;
+	private UUID customerId;
 	private String firstName;
 	private String lastName;
 	private String email;

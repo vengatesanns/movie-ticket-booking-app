@@ -7,18 +7,17 @@ jdk:
 # JOBS
 jobs:
   include:
-    - stage: TEST   	# TEST JOB
-      script: 
-	 - echo '>>>>> User-Service Junit Testing Started!!!'
-	 - cd ./microservices/userservice/
-	 - ./mvnw clean test 
-    - stage: BUILD      # BUILD JOB
-      script: 
-	 - echo '>>>>> User-Service Build Started!!!'
-	 - cd ./microservices/userservice/
-         - ./mvnw clean install 
+   - stage: TEST   	# TEST JOB
+     script: 
+      - echo ">>>>> User-Service Junit Testing Started!!!"
+	    - cd ./microservices/userservice/
+	    - ./mvnw clean test 
+   - stage: BUILD      # BUILD JOB
+     script: 
+	    - echo "">>>>> User-Service Build Started!!!"
+	    - cd ./microservices/userservice/
+      - ./mvnw clean install 
 
 # EMAIL NOTIFICATION
 notifications:
    email: vengat19amd@gmail.com
-

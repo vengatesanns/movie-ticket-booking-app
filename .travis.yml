@@ -3,7 +3,7 @@ jdk:
   - openjdk8
 
 script: 
-   - ls -a
+   - cd ./microservices/userservice/
    - ./mvnw clean install
 
 notifications:

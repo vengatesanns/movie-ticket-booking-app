@@ -1,4 +1,4 @@
-package com.ticketbox.userservice;
+package com.showtime.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

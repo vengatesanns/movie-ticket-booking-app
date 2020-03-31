@@ -11,7 +11,7 @@ jobs:
      script: 
        - chmod -R 777 ./microservices/
        - echo ">>>>> Auth Server Testing Started!!!"   # Auth Server
-       - mvnw -f ./microservices/authserver/pom.xml clean test
+       - mvn -f ./microservices/authserver/pom.xml clean test
        - echo ">>>>> User-Service Junit Testing Started!!!" # User Service
        - cd ./microservices/userservice/
        - ./mvnw clean test 

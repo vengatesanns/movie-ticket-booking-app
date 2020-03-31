@@ -24,9 +24,3 @@ CREATE MATERIALIZED VIEW access_token_by_clientid_username
 AS SELECT "client_id","token_id","token" FROM access_token 
 WHERE client_id IS NOT NULL AND username IS NOT NULL AND token_id IS NOT NULL
 primary key(client_id,username,token_id);
-
-
-drop MATERIALIZED VIEW access_token_by_refresh_token ;
-drop MATERIALIZED VIEW access_token_by_authentication_id ;
-drop MATERIALIZED VIEW access_token_by_clientid_username ;
-drop table access_token;

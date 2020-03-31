@@ -13,16 +13,13 @@ jobs:
        - echo ">>>>> Auth Server Testing Started!!!"   # Auth Server
        - mvn -f ./microservices/authserver/pom.xml clean test
        - echo ">>>>> User-Service Junit Testing Started!!!" # User Service
-       - cd ./microservices/userservice/
-       - ./mvnw clean test 
+       - mvn -f ./microservices/userservice/pom.xml clean test
    - stage: BUILD      # BUILD JOB
      script: 
        - echo ">>>>> Auth Server Build Started!!!"   # Auth Server
-       - cd ./microservices/authserver/
-       - ./mvnw clean install
+       - mvn -f ./microservices/authserver/pom.xml clean install
        - echo ">>>>> User-Service Build Started!!!"  # User Service
-       - cd ./microservices/userservice/
-       - ./mvnw clean install 
+       - mvn -f ./microservices/userservice/pom.xml clean install
 
 
 

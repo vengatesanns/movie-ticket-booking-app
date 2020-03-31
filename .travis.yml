@@ -9,6 +9,7 @@ jobs:
   include:
    - stage: TEST   	# TEST JOB
      script: 
+       - chmod -R 777 ./microservices/
        - echo ">>>>> Auth Server Testing Started!!!"   # Auth Server
        - cd ./microservices/authserver/
        - ./mvnw clean test

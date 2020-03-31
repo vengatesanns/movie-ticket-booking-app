@@ -1,0 +1,16 @@
+create table user(user_id uuid, username text, email text, fullname text, profile_image text,
+password text, active boolean, phone_no text, roles list<text>, primary key (user_id));
+
+
+
+
+# 1) Password is 123
+# 2) Password is chandhu@123
+insert into user(user_id, username, email, fullname, profile_image,
+password, active, phone_no, roles) values (now(), 'vengatesanns', 'vengat@gmail.com', 'vengatesan N',
+'', '$2a$10$2pbxp0YYzEAU4VNv/a3a0OybiFjN8RhXozAKSe8GMecwyvcVRLnvS', true, '9876543210', ['ROLE_ADMIN', 'ROLE_USER']); 
+
+
+insert into user(user_id, username, email, fullname, profile_image,
+password, active, phone_no, roles) values (now(), 'chandu', 'chandu@gmail.com', 'Sai Chandhu',
+'', '$2a$10$qZbR7e.Kvx51mIq0c3uubOetwCCyyxxwkpLKgr/wHniw8uojdD93.', true, '1234567890', ['ROLE_USER']); 

@@ -11,3 +11,11 @@ spring:
       read-timeout: 10000ms
       pool:
         pool-timeout: 10000ms
+server:
+  servlet:
+    context-path: /user
+  port: 8100
+
+
+   
+logging.level.com.datastax.driver.core.QueryLogger.NORMAL: DEBUG

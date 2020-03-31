@@ -9,12 +9,18 @@ jobs:
   include:
    - stage: TEST   	# TEST JOB
      script: 
-       - echo ">>>>> User-Service Junit Testing Started!!!"
+       - echo ">>>>> Auth Server Testing Started!!!"   # Auth Server
+       - cd ./microservice/authserver/
+       - ./mvnw clean test
+       - echo ">>>>> User-Service Junit Testing Started!!!" # User Service
        - cd ./microservices/userservice/
        - ./mvnw clean test 
    - stage: BUILD      # BUILD JOB
      script: 
-       - echo ">>>>> User-Service Build Started!!!"
+       - echo ">>>>> Auth Server Build Started!!!"   # Auth Server
+       - cd ./microservice/authserver/
+       - ./mvnw clean install
+       - echo ">>>>> User-Service Build Started!!!"  # User Service
        - cd ./microservices/userservice/
        - ./mvnw clean install 
 

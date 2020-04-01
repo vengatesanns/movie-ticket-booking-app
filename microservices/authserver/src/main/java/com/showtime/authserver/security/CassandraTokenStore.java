@@ -25,7 +25,7 @@ import com.showtime.authserver.repository.RefreshTokenRepository;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 public class CassandraTokenStore implements TokenStore {

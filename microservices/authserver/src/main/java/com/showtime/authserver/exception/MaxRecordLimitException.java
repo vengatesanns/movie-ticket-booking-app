@@ -2,7 +2,7 @@ package com.showtime.authserver.exception;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 public class MaxRecordLimitException extends RuntimeException {

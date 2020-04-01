@@ -13,7 +13,7 @@ import com.showtime.authserver.utils.SecurityHelper;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Component

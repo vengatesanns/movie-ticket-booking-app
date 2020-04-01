@@ -12,7 +12,7 @@ import com.showtime.authserver.domain.AccessToken;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Repository

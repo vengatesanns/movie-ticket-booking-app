@@ -21,7 +21,7 @@ import com.showtime.authserver.service.impl.ClientDetailsServiceImpl;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Configuration

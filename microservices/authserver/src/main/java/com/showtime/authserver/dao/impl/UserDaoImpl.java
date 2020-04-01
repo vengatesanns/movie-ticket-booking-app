@@ -3,6 +3,7 @@ package com.showtime.authserver.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.CassandraConnectionFailureException;
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Slf4j
@@ -90,6 +91,11 @@ public class UserDaoImpl implements UserDao {
 			throw new PersistentException("Error while fetching all users info");
 		}
 		return userInfo;
+	}
+
+	@Override
+	public void removeUserIdentityDetails(UUID userId) {
+		userRepository.deleteByUserId(userId);
 	}
 
 }

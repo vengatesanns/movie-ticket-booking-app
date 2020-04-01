@@ -1,11 +1,15 @@
 package com.showtime.userservice.dao;
 
-import com.showtime.userservice.exception.UserProfileDaoException;
-import com.showtime.userservice.request.UserProfileRequest;
+import com.showtime.userservice.domain.UserProfile;
 
+/**
+ * 
+ * @author Vengatesan Nagarajan
+ *
+ */
 public interface UserProfileDao {
 
-	public void createUserProfile(UserProfileRequest userProfileRequest) throws UserProfileDaoException;
+	public void createUserProfile(UserProfile userProfile);
 
 	public void updateUserProfile();
 

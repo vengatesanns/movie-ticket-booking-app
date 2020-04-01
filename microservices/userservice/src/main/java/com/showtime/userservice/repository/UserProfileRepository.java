@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.showtime.userservice.domain.UserProfile;
 
+/**
+ * 
+ * @author Vengatesan Nagarajan
+ *
+ */
 @Repository
 public interface UserProfileRepository extends CassandraRepository<UserProfile, UUID> {
 

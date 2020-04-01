@@ -16,7 +16,7 @@ import com.showtime.authserver.service.UserService;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @RestController

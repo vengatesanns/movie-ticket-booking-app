@@ -2,6 +2,7 @@ package com.showtime.authserver.dao;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.data.cassandra.CassandraConnectionFailureException;
 
@@ -10,7 +11,7 @@ import com.showtime.authserver.exception.PersistentException;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 public interface UserDao {
@@ -40,5 +41,12 @@ public interface UserDao {
 	 * @return
 	 */
 	public List<User> getAllUsers(int reqRecordCount, int reqPageNo);
+
+	/**
+	 * To Remove the existing User based on USER ID
+	 * 
+	 * @param userId
+	 */
+	public void removeUserIdentityDetails(UUID userId);
 
 }

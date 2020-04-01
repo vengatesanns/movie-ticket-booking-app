@@ -9,7 +9,7 @@ import com.showtime.authserver.domain.Client;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Repository

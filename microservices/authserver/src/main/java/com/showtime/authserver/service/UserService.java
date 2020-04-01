@@ -9,7 +9,7 @@ import com.showtime.authserver.domain.UserDetailsPrincipal;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 public interface UserService {

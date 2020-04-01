@@ -2,6 +2,11 @@ package com.showtime.authserver.constants;
 
 import lombok.Getter;
 
+/**
+ * 
+ * @author Vengatesan Nagarajan
+ *
+ */
 @Getter
 public enum UserRoles {
 

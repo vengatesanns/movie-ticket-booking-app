@@ -8,7 +8,7 @@ import com.showtime.authserver.domain.RefreshToken;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Repository

@@ -1,13 +1,16 @@
-package com.showtime.userservice.response;
+package com.showtime.userservice.bean.response;
 
 import java.util.Set;
 import java.util.UUID;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+/**
+ * 
+ * @author Vengatesan Nagarajan
+ *
+ */
+@Data
 public class UserProfileResponse {
 
 	private UUID userId;

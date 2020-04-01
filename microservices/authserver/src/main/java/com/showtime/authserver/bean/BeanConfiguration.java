@@ -13,7 +13,7 @@ import com.showtime.authserver.security.CassandraTokenStore;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Configuration

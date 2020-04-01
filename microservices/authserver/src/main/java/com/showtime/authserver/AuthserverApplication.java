@@ -2,12 +2,14 @@ package com.showtime.authserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
+@EnableFeignClients
 @SpringBootApplication
 public class AuthserverApplication {
 

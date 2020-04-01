@@ -12,7 +12,7 @@ import com.showtime.authserver.domain.User;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Repository
@@ -23,5 +23,7 @@ public interface UserRepository extends CassandraRepository<User, UUID> {
 
 	@Query("select * from user_details_by_phoneno where phone_no =:phoneNo ")
 	Optional<User> findByPhoneNo(@Param("phoneNo") String phoneNo);
+
+	void deleteByUserId(UUID userId);
 
 }

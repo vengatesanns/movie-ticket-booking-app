@@ -1,8 +1,15 @@
+#Application Name
+spring:
+  application:
+    name: user-service 
+
+#Cassandra DB     
+---
 spring:
   data:
     cassandra:
       cluster-name: My Cluster
-      contact-points: 34.93.81.253
+      contact-points: 35.244.42.148
       keyspace-name: show_time
       port: 9042
       schema-action: CREATE_IF_NOT_EXISTS
@@ -11,11 +18,13 @@ spring:
       read-timeout: 10000ms
       pool:
         pool-timeout: 10000ms
+
+#Server Port        
 server:
   servlet:
     context-path: /user
   port: 8100
 
 
-   
+# Cassandra Query Logger   
 logging.level.com.datastax.driver.core.QueryLogger.NORMAL: DEBUG

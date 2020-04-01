@@ -7,7 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,24 +20,27 @@ import com.showtime.authserver.domain.UserDetailsPrincipal;
 import com.showtime.authserver.exception.MaxRecordLimitException;
 import com.showtime.authserver.exception.ServiceException;
 import com.showtime.authserver.exception.UserAlreadyExistsException;
+import com.showtime.authserver.feign.api.UserProfileClient;
 import com.showtime.authserver.service.UserService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserDao userDao;
+	private final UserDao userDao;
 
-	@Autowired
-	private ModelMapper modelMapper;
+	private final ModelMapper modelMapper;
+
+	private final UserProfileClient userProfileClient;
 
 	/**
 	 * Environment Variables
@@ -71,13 +73,16 @@ public class UserServiceImpl implements UserService {
 			} else {
 				User user = mapUserRequest(userInfoRequest);
 				userDao.saveUserDetails(user);
+
+				// Call the REST API of User Profile Service to create User Profile
+				saveUserProfiles(userInfoRequest, user);
 			}
 		} catch (UserAlreadyExistsException userException) {
 			log.debug("##### Current User is already exists ", userException);
 			throw userException;
 		} catch (Exception ex) {
 			log.debug("##### Error while register new user ", ex);
-			throw new ServiceException("Error while register new user");
+			throw new ServiceException(ex.getMessage());
 		}
 	}
 
@@ -99,8 +104,19 @@ public class UserServiceImpl implements UserService {
 		user.setAccountNonExpired(true);
 		user.setAccountNonLocked(true);
 		user.setCredentialsNonExpired(true);
-		user.setRoles(Arrays.asList(UserRoles.ADMIN.getRole(), UserRoles.USER.getRole()));
+		user.setRoles(Arrays.asList(UserRoles.USER.getRole()));
 		return user;
+	}
+
+	/**
+	 * Rest API through Feign Client to User Service
+	 */
+	private void saveUserProfiles(UserInfoRequest userInfoRequest, User user) {
+		// Building Rest API Request
+		userInfoRequest.setUserId(user.getUserId());
+
+		// Call the Rest API of User Profile Service'
+		userProfileClient.createUserProfileDetails(userInfoRequest);
 	}
 
 	@Override
@@ -121,7 +137,7 @@ public class UserServiceImpl implements UserService {
 			throw maxLimitException;
 		} catch (Exception ex) {
 			log.debug("##### Error while fetching users information in method => fetchUsers() ", ex);
-			throw new ServiceException("Error while fetching users information");
+			throw new ServiceException(ex.getMessage());
 		}
 		return usersResponse;
 	}

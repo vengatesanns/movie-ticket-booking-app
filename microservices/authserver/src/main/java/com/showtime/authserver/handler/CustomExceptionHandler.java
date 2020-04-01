@@ -17,7 +17,7 @@ import com.showtime.authserver.exception.UserAlreadyExistsException;
 
 /**
  * 
- * @author vengatesanns(HackPro)
+ * @author Vengatesan Nagarajan
  *
  */
 @ControllerAdvice

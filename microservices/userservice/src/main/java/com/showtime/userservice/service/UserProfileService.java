@@ -1,11 +1,15 @@
 package com.showtime.userservice.service;
 
-import com.showtime.userservice.exception.UserProfileServiceException;
-import com.showtime.userservice.request.UserProfileRequest;
+import com.showtime.userservice.bean.request.UserProfileRequest;
 
+/**
+ * 
+ * @author Vengatesan Nagarajan
+ *
+ */
 public interface UserProfileService {
 
-	public void createUserProfile(UserProfileRequest userProfileRequest) throws UserProfileServiceException;
+	public void createUserProfile(UserProfileRequest userProfileRequest);
 
 	public void updateUserProfile();
 

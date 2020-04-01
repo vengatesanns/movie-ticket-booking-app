@@ -44,3 +44,15 @@ logging:
         authserver: debug
     # org.springframework: debug
     # org.springframework.security: error   
+
+
+# Feign Client
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+  hystrix:
+    enabled: true     

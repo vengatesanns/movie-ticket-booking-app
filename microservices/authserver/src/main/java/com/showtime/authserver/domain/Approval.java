@@ -1,43 +1,49 @@
 package com.showtime.authserver.domain;
 
-import java.util.Date;
-import java.util.UUID;
-
+import com.datastax.driver.core.DataType;
+import lombok.Data;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.security.oauth2.provider.approval.Approval.ApprovalStatus;
 
-import lombok.Data;
+import java.util.Date;
+import java.util.UUID;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @Data
 @Table(value = "approval")
 public class Approval {
 
-	@PrimaryKey("approval_id")
-	private UUID approvalId;
+    @PrimaryKey("approval_id")
+    @CassandraType(type = DataType.Name.UUID)
+    private UUID approvalId;
 
-	@Column("user_id")
-	private String userId;
+    @Column("user_id")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String userId;
 
-	@Column("client_id")
-	private String clientId;
+    @Column("client_id")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String clientId;
 
-	@Column("scope")
-	private String scope;
+    @Column("scope")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String scope;
 
-	@Column("status")
-	private ApprovalStatus status;
+    @Column("status")
+    @CassandraType(type = DataType.Name.TEXT)
+    private ApprovalStatus status;
 
-	@Column("expires_at")
-	private Date expiresAt;
+    @Column("expires_at")
+    @CassandraType(type = DataType.Name.DATE)
+    private Date expiresAt;
 
-	@Column("last_updated_at")
-	private Date lastUpdatedAt;
+    @Column("last_updated_at")
+    @CassandraType(type = DataType.Name.DATE)
+    private Date lastUpdatedAt;
 
 }

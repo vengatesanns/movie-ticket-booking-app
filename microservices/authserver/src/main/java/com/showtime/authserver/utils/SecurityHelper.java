@@ -1,22 +1,19 @@
 package com.showtime.authserver.utils;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SecurityHelper {
 
-	private static final int ROUNDS = 12;
+    public static final int ROUNDS = 12;
 
-	public static boolean isPasswordMatched(final String plainPassword, final String bCryptHash) {
-		return new BCryptPasswordEncoder(ROUNDS).matches(plainPassword, bCryptHash);
-	}
+    public static boolean isPasswordMatched(final String plainPassword, final String bCryptHash) {
+        return new BCryptPasswordEncoder(ROUNDS).matches(plainPassword, bCryptHash);
+    }
 
 }

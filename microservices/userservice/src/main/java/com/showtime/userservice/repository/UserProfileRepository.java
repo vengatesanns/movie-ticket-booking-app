@@ -1,5 +1,6 @@
 package com.showtime.userservice.repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.cassandra.repository.CassandraRepository;
@@ -14,5 +15,7 @@ import com.showtime.userservice.domain.UserProfile;
  */
 @Repository
 public interface UserProfileRepository extends CassandraRepository<UserProfile, UUID> {
+
+	Optional<UserProfile> findByUserId(UUID userId);
 
 }

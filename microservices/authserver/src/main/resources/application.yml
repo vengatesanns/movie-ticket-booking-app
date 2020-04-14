@@ -40,8 +40,8 @@ logging.level.com.datastax.driver.core.QueryLogger.NORMAL: DEBUG
 logging:
   level:
     com:
-      hackpro:
-        authserver: debug
+      showtime:
+        authserver: INFO
     # org.springframework: debug
     # org.springframework.security: error   
 

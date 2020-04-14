@@ -1,64 +1,60 @@
 package com.showtime.authserver.domain;
 
-import java.util.List;
-import java.util.UUID;
-
+import com.datastax.driver.core.DataType;
+import lombok.Data;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import com.datastax.driver.core.DataType.Name;
-
-import lombok.Data;
+import java.util.Set;
+import java.util.UUID;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @Data
 @Table(value = "user")
 public class User {
 
-	@PrimaryKey("user_id")
-	private UUID userId;
+    @PrimaryKey("user_id")
+    @CassandraType(type = DataType.Name.UUID)
+    private UUID userId;
 
-	@Column("username")
-	private String username;
+    @Column("username")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String username;
 
-	@Column("firstname")
-	private String firstName;
+    @Column("email")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String email;
 
-	@Column("lastname")
-	private String lastName;
+    @Column("password")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String password;
 
-	@Column("email")
-	private String email;
+    @Column("phone_no")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String phoneNo;
 
-	@Column("password")
-	private String password;
+    @Column("active")
+    @CassandraType(type = DataType.Name.BOOLEAN)
+    private boolean enabled;
 
-	@Column("phone_no")
-	private String phoneNo;
+    @Column("roles")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> roles;
 
-	@Column("active")
-	private boolean enabled;
+    @Column("account_non_expired")
+    @CassandraType(type = DataType.Name.BOOLEAN)
+    private boolean accountNonExpired;
 
-	@Column("profile_image")
-	@CassandraType(type = Name.BLOB)
-	private String profileImage;
+    @Column("account_non_locked")
+    @CassandraType(type = DataType.Name.BOOLEAN)
+    private boolean accountNonLocked;
 
-	@Column("roles")
-	private List<String> roles;
-
-	@Column("account_non_expired")
-	private boolean accountNonExpired;
-
-	@Column("account_non_locked")
-	private boolean accountNonLocked;
-
-	@Column("credentials_non_expired")
-	private boolean credentialsNonExpired;
+    @Column("credentials_non_expired")
+    @CassandraType(type = DataType.Name.BOOLEAN)
+    private boolean credentialsNonExpired;
 
 }

@@ -1,42 +1,48 @@
 package com.showtime.authserver.domain;
 
-import java.nio.ByteBuffer;
-
+import com.datastax.driver.core.DataType;
+import lombok.Data;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import lombok.Data;
+import java.nio.ByteBuffer;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @Data
 @Table(value = "access_token")
 public class AccessToken {
 
-	@PrimaryKeyColumn(name = "token_id", type = PrimaryKeyType.PARTITIONED)
-	private String tokenId;
+    @PrimaryKeyColumn(name = "token_id", type = PrimaryKeyType.PARTITIONED)
+    @CassandraType(type = DataType.Name.TEXT)
+    private String tokenId;
 
-	@Column("token")
-	private ByteBuffer token;
+    @Column("token")
+    @CassandraType(type = DataType.Name.BLOB)
+    private ByteBuffer token;
 
-	@Column("authentication_id")
-	private String authenticationId;
+    @Column("authentication_id")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String authenticationId;
 
-	@PrimaryKeyColumn(name = "client_id", ordinal = 0, type = PrimaryKeyType.CLUSTERED)
-	private String clientId;
+    @PrimaryKeyColumn(name = "client_id", ordinal = 0, type = PrimaryKeyType.CLUSTERED)
+    @CassandraType(type = DataType.Name.TEXT)
+    private String clientId;
 
-	@PrimaryKeyColumn(name = "username", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
-	private String username;
+    @PrimaryKeyColumn(name = "username", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    @CassandraType(type = DataType.Name.TEXT)
+    private String username;
 
-	@Column("authentication")
-	private ByteBuffer authentication;
+    @Column("authentication")
+    @CassandraType(type = DataType.Name.BLOB)
+    private ByteBuffer authentication;
 
-	@Column("refresh_token")
-	private String refreshToken;
+    @Column("refresh_token")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String refreshToken;
 
 }

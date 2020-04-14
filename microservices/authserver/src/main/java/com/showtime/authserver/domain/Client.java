@@ -1,57 +1,68 @@
 package com.showtime.authserver.domain;
 
-import java.util.List;
-import java.util.Set;
-
+import com.datastax.driver.core.DataType;
+import lombok.Data;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import lombok.Data;
+import java.util.List;
+import java.util.Set;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @Data
 @Table("client")
 public class Client {
 
-	@PrimaryKey("client_id")
-	private String clientId;
+    @PrimaryKey("client_id")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String clientId;
 
-	@Column("client_secret")
-	private String clientSecret;
+    @Column("client_secret")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String clientSecret;
 
-	@Column("client_name")
-	private String clientName;
+    @Column("client_name")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String clientName;
 
-	@Column("scope")
-	private Set<String> scope;
+    @Column("scope")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> scope;
 
-	@Column("resource_ids")
-	private Set<String> resourceIds;
+    @Column("resource_ids")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> resourceIds;
 
-	@Column("authorized_grant_types")
-	private Set<String> authorizedGrantTypes;
+    @Column("authorized_grant_types")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> authorizedGrantTypes;
 
-	@Column("registered_redirect_uris")
-	private Set<String> registeredRedirectUris;
+    @Column("registered_redirect_uris")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> registeredRedirectUris;
 
-	@Column("authorities")
-	private List<String> authorities;
+    @Column("authorities")
+    @CassandraType(type = DataType.Name.LIST)
+    private List<String> authorities;
 
-	@Column("accesstoken_validity_seconds")
-	private Integer accessTokenValiditySeconds;
+    @Column("accesstoken_validity_seconds")
+    @CassandraType(type = DataType.Name.INT)
+    private Integer accessTokenValiditySeconds;
 
-	@Column("refreshtoken_validity_seconds")
-	private Integer refreshTokenValiditySeconds;
+    @Column("refreshtoken_validity_seconds")
+    @CassandraType(type = DataType.Name.INT)
+    private Integer refreshTokenValiditySeconds;
 
-	@Column("additional_information")
-	private String additionalInformation;
+    @Column("additional_information")
+    @CassandraType(type = DataType.Name.TEXT)
+    private String additionalInformation;
 
-	@Column("auto_approve_scopes")
-	private Set<String> autoApproveScopes;
+    @Column("auto_approve_scopes")
+    @CassandraType(type = DataType.Name.SET)
+    private Set<String> autoApproveScopes;
 
 }

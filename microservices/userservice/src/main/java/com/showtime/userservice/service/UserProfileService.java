@@ -1,6 +1,7 @@
 package com.showtime.userservice.service;
 
 import com.showtime.userservice.bean.request.UserProfileRequest;
+import com.showtime.userservice.domain.UserProfile;
 
 /**
  * 
@@ -9,11 +10,22 @@ import com.showtime.userservice.bean.request.UserProfileRequest;
  */
 public interface UserProfileService {
 
+	/**
+	 * To Create User Profile with additional information
+	 * 
+	 * @param userProfileRequest
+	 */
 	public void createUserProfile(UserProfileRequest userProfileRequest);
 
-	public void updateUserProfile();
+	/**
+	 * To Fetch the User Profile based on the user-id
+	 * 
+	 * @param userId
+	 * @return Fetched User Profile
+	 */
+	public UserProfile fetchUserProfile(String userId);
 
-	public void fetchUserProfile();
+	public void updateUserProfile();
 
 	public void deleteUserProfile();
 

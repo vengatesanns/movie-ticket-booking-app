@@ -7,12 +7,14 @@ import com.showtime.authserver.dao.UserDao;
 import com.showtime.authserver.feign.api.UserProfileClient;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
  * @author Vengatesan Nagarajan
  *
  */
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class UserProfileClientFallBack implements UserProfileClient {
@@ -24,6 +26,7 @@ public class UserProfileClientFallBack implements UserProfileClient {
 	 */
 	@Override
 	public void createUserProfileDetails(UserInfoRequest userInfoRequest) {
+		log.debug("####### Fallback method gets initiated for Register New User");
 		userDao.removeUserIdentityDetails(userInfoRequest.getUserId());
 	}
 

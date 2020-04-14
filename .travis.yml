@@ -10,16 +10,12 @@ jobs:
    - stage: TEST   	# TEST JOB
      script: 
        - chmod -R 777 ./microservices/
-       - echo ">>>>> Auth Server Testing Started!!!"   # Auth Server
-       - mvn -f ./microservices/authserver/pom.xml clean test
-       - echo ">>>>> User-Service Junit Testing Started!!!" # User Service
-       - mvn -f ./microservices/userservice/pom.xml clean test
+       - echo ">>>>> Show_Time_App Services Testing Started!!!"   
+       - mvn -f ./microservices/pom.xml clean test
    - stage: BUILD      # BUILD JOB
      script: 
-       - echo ">>>>> Auth Server Build Started!!!"   # Auth Server
-       - mvn -f ./microservices/authserver/pom.xml clean install
-       - echo ">>>>> User-Service Build Started!!!"  # User Service
-       - mvn -f ./microservices/userservice/pom.xml clean install
+       - echo ">>>>> Show_Time_App Services Build Started!!!"   
+       - mvn -f ./microservices/pom.xml clean install
 
 
 

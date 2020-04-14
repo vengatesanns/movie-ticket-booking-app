@@ -1,0 +1,4 @@
+.microservices/.idea
+.microservices/.settings
+.microservices/.project
+.microservices/*.iml

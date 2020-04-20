@@ -12,7 +12,7 @@
 	<groupId>com.showtime</groupId>
 	<artifactId>userservice</artifactId>
 	<version>1.0</version>
-	<name>userservice</name>
+	<name>user-service</name>
 	<description>User Personal Identification Information is maintain at user-service</description>
 
 	<properties>
@@ -24,7 +24,7 @@
 		<!-- ST Framework with Cloud Security, Core, Exception -->
 		<dependency>
 			<groupId>com.showtime</groupId>
-			<artifactId>st-framework</artifactId>
+			<artifactId>libraries</artifactId>
 			<version>1.0</version>
 		</dependency>
 

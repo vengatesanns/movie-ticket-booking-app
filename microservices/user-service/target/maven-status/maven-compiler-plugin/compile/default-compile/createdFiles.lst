@@ -1,0 +1,12 @@
+com\showtime\userservice\bean\response\UserProfileResponse.class
+com\showtime\userservice\domain\UserProfile.class
+com\showtime\userservice\dao\UserProfileDao.class
+com\showtime\userservice\UserserviceApplication.class
+com\showtime\userservice\dao\impl\UserProfileDaoImpl.class
+com\showtime\userservice\bean\request\UserProfileRequest.class
+com\showtime\userservice\repository\UserProfileRepository.class
+com\showtime\userservice\controller\UserProfileController.class
+com\showtime\userservice\handler\UserProfileExceptionHandler.class
+com\showtime\userservice\service\UserProfileService.class
+com\showtime\userservice\service\impl\UserProfileServiceImpl.class
+com\showtime\userservice\bean\UtilityBeanConfiguration.class

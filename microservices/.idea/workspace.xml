@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7031fcc1-b9d8-4d0c-9e8b-148f5a6e4109" name="Default Changelist" comment="" />
+    <list default="true" id="7031fcc1-b9d8-4d0c-9e8b-148f5a6e4109" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/core-lib/src/main/java/com/showtime/core/bean/UtilityBeanConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/response/ErrorResponse.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,6 +126,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="593" y="275" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.0.1536.824@0.0.1536.824" timestamp="1586939385356" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587409517716">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409517716" />
     <state x="304" y="5" key="CommitChangelistDialog2" timestamp="1586808275295">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -300,16 +309,6 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/GlobalExceptionHandler.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/GlobalExceptionHandler.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/IAMSecurityAccessDeniedHandler.java</url>
           <line>25</line>
           <option name="timeStamp" value="27" />
@@ -353,11 +352,6 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/showtime/authserver/security/CustomAuthenticationProvider.java</url>
           <line>62</line>
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/libraries/exception-lib/src/main/java/com/showtime/exception/handler/GlobalExceptionHandler.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/showtime/authserver/config/IAMSecurityAuthenticationEntryPointHandler.java</url>

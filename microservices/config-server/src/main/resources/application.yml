@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/vengatesanns/movie-ticket-booking-app/microservices/app-cloud-config
+          uri: https://github.com/HackPro-Tech/show-time-app-config
           timeout: 5
 
 

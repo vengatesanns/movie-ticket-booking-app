@@ -1,0 +1,30 @@
+#Cassandra DB
+---
+spring:
+  data:
+    cassandra:
+      cluster-name: My Cluster
+      contact-points: 35.244.42.148
+      keyspace-name: show_time
+      port: 9042
+      schema-action: CREATE_IF_NOT_EXISTS
+      consistency-level: ONE
+      connect-timeout: 10000ms
+      read-timeout: 10000ms
+      pool:
+        pool-timeout: 10000ms
+
+#Server Port
+server:
+  servlet:
+    context-path: /user
+  port: 8100
+
+
+# Logging
+logging:
+  level:
+    com:
+      showtime:
+        userservice: INFO
+

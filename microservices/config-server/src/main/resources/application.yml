@@ -1,0 +1,16 @@
+
+# Server Name and Git sync URL
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vengatesanns/movie-ticket-booking-app/microservices/app-cloud-config
+          timeout: 5
+
+
+#server port no
+server:
+  port: 8888

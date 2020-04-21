@@ -21,6 +21,7 @@
 
     <modules>
         <module>libraries</module>
+        <module>config-server</module>
         <module>auth-service</module>
         <module>user-service</module>
     </modules>

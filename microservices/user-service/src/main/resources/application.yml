@@ -1,19 +1,4 @@
 #Application Name
 spring:
   application:
-    name: user-service 
-  cloud:
-    config:
-      uri: ${cloud-config-uri}
-
-
-
-
-# Security
-security:
-  oauth2:
-    resource:
-      token-info-uri: http://localhost:9100/oauth/check_token
-    client:
-      client-id: show-time-booking-client
-      client-secret: hack-pro-show-time-web  
+    name: user-service

@@ -1,64 +1,69 @@
 package com.showtime.userservice.domain;
 
-import java.util.Date;
-import java.util.Set;
-import java.util.UUID;
-
+import com.datastax.driver.core.DataType.Name;
+import lombok.Data;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import com.datastax.driver.core.DataType.Name;
-
-import lombok.Data;
+import java.util.Date;
+import java.util.UUID;
 
 /**
- * 
  * @author Vengatesan Nagarajan
- *
  */
 @Data
 @Table("user_profile")
 public class UserProfile {
 
-	@PrimaryKey("user_id")
-	private UUID userId;
+    @PrimaryKey("user_id")
+    @CassandraType(type = Name.UUID)
+    private UUID userId;
 
-	@Column("firstname")
-	private String firstName;
+    @Column("firstname")
+    @CassandraType(type = Name.TEXT)
+    private String firstname;
 
-	@Column("lastname")
-	private String lastName;
+    @Column("lastname")
+    @CassandraType(type = Name.TEXT)
+    private String lastname;
 
-	@Column("date_of_birth")
-	private Date dateOfBirth;
+    @Column("date_of_birth")
+    @CassandraType(type = Name.DATE)
+    private Date dateOfBirth;
 
-	@Column("phone_no")
-	private String phoneNo;
+    @Column("phone_no")
+    @CassandraType(type = Name.TEXT)
+    private String phoneNo;
 
-	@Column("email")
-	private String email;
+    @Column("email")
+    @CassandraType(type = Name.TEXT)
+    private String email;
 
-	@Column("email_notification")
-	private Boolean emailNotification;
+    @Column("whatsapp_notification")
+    @CassandraType(type = Name.BOOLEAN)
+    private Boolean whatsAppNotification;
 
-	@Column("location")
-	private String location;
+    @Column("location")
+    @CassandraType(type = Name.TEXT)
+    private String location;
 
-	@Column("gender")
-	private String gender;
+    @Column("gender")
+    @CassandraType(type = Name.TEXT)
+    private String gender;
 
-	@Column("genre")
-	@CassandraType(type = Name.SET, typeArguments = Name.TEXT)
-	private Set<String> genre;
+    @Column("profile_image")
+    @CassandraType(type = Name.BLOB)
+    private String profileImage;
 
-	@Column("created_at")
-	@CassandraType(type = Name.TIMESTAMP)
-	private Date createdAt;
 
-	@Column("modified_at")
-	@CassandraType(type = Name.TIMESTAMP)
-	private Date modifiedAt;
+    // TODO: Auditing needs to do
+    @Column("created_at")
+    @CassandraType(type = Name.TIMESTAMP)
+    private Date createdAt;
 
+    @Column("modified_at")
+    @CassandraType(type = Name.TIMESTAMP)
+    private Date modifiedAt;
 }

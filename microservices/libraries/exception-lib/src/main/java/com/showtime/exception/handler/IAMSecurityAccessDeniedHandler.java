@@ -1,3 +1,4 @@
+/*
 package com.showtime.exception.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,9 +16,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.time.LocalDateTime;
 
+*/
 /**
  * @author Vengatesan Nagarajan
- */
+ *//*
+
 @Component
 public class IAMSecurityAccessDeniedHandler implements AccessDeniedHandler {
 
@@ -37,3 +40,4 @@ public class IAMSecurityAccessDeniedHandler implements AccessDeniedHandler {
         out.flush();
     }
 }
+*/

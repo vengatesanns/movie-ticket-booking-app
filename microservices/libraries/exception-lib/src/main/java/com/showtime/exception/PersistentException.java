@@ -5,11 +5,11 @@ package com.showtime.exception;
  * @author Vengatesan Nagarajan
  *
  */
-public class UserProfilePersistentException extends RuntimeException {
+public class PersistentException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public UserProfilePersistentException(String message) {
+	public PersistentException(String message) {
 		super(message);
 	}
 

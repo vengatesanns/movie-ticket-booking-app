@@ -43,9 +43,10 @@ public class UserDaoImpl implements UserDao {
      * To Save New User Details or Register New User
      */
     @Override
-    public void saveUserDetails(User user) {
+    public User saveUserDetails(User user) {
+        User registeredUserDetails = null;
         try {
-            userRepository.save(user);
+            registeredUserDetails = userRepository.save(user);
         } catch (CassandraConnectionFailureException failureEx) {
             log.debug("##### Error while connecting to Cassandra Database");
             throw failureEx;
@@ -53,7 +54,7 @@ public class UserDaoImpl implements UserDao {
             log.debug("##### Error while saving new user details");
             throw new IAMPersistentException("Error while saving new user");
         }
-
+        return registeredUserDetails;
     }
 
     /**

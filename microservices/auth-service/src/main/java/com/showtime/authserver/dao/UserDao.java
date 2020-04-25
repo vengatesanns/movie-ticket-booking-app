@@ -23,8 +23,9 @@ public interface UserDao {
      * To Save New User Details or Register New User
      *
      * @param user
+     * @return registered user details
      */
-    public void saveUserDetails(User user);
+    public User saveUserDetails(User user);
 
     /**
      * To fetch All Users Information Based on Pagination criteria

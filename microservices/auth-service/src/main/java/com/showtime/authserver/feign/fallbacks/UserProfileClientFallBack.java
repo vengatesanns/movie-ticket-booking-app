@@ -27,7 +27,7 @@ public class UserProfileClientFallBack implements UserProfileClient {
 	@Override
 	public void createUserProfileDetails(UserInfoRequest userInfoRequest) {
 		log.debug("####### Fallback method gets initiated for Register New User");
-		userDao.removeUserIdentityDetails(userInfoRequest.getUserId());
+		//userDao.removeUserIdentityDetails(userInfoRequest.getUserId());
 	}
 
 }

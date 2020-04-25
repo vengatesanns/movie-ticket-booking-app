@@ -1,3 +1,4 @@
+/*
 package com.showtime.exception.handler;
 
 import com.showtime.exception.IAMAuthenticationException;
@@ -12,9 +13,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 
+*/
 /**
  * @author Vengatesan Nagarajan
- */
+ *//*
+
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private static final String OWNER = "com.hackpro";
@@ -44,4 +47,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .build(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-}
+}*/

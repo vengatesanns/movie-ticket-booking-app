@@ -1,10 +1,9 @@
 package com.showtime.userservice.bean.request;
 
-import java.util.Date;
-import java.util.Set;
-import java.util.UUID;
-
 import lombok.Data;
+
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author Vengatesan Nagarajan
@@ -13,14 +12,15 @@ import lombok.Data;
 public class UserProfileRequest {
 
     private UUID userId;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
     private String phoneNo;
     private Date dateOfBirth;
-    private Boolean emailNotification;
+    private Boolean whatsAppNotification;
     private String location;
     private String gender;
-    private Set<String> genre;
+    private String profileImage;
+
 
 }

@@ -8,13 +8,17 @@ import com.showtime.authserver.dao.UserDao;
 import com.showtime.authserver.domain.User;
 import com.showtime.authserver.domain.UserDetailsPrincipal;
 import com.showtime.authserver.feign.api.UserProfileClient;
+import com.showtime.authserver.kafka.message.RegisterNewUserMessage;
 import com.showtime.authserver.service.UserService;
+import com.showtime.corelib.kafka.GKafkaProducer;
 import com.showtime.exception.IAMServiceException;
 import com.showtime.exception.MaxRecordLimitException;
 import com.showtime.exception.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +50,10 @@ public class UserServiceImpl implements UserService {
     @Value("${records.page-no}")
     private int pageNo;
 
+    @Autowired
+    @Qualifier("kafka-properties")
+    private Properties kafkaProperties;
+
     @Override
     public UserDetailsPrincipal getUserByEmailOrPhoneNo(String emailOrPhoneNo) {
         // fetch user based on Email Or Phone no
@@ -57,17 +65,21 @@ public class UserServiceImpl implements UserService {
         return userDetailsPrincipal;
     }
 
+    /**
+     * To Register New User and publish registered notification into kafka
+     *
+     * @param userInfoRequest
+     */
     @Override
     public void registerNewUser(UserInfoRequest userInfoRequest) {
         try {
             if (checkUserAlreadyExists(userInfoRequest)) {
                 throw new UserAlreadyExistsException("User Already Exists!!!");
             } else {
-                User user = mapUserRequest(userInfoRequest);
-                userDao.saveUserDetails(user);
+                User registeredUserDetails = userDao.saveUserDetails(mapUserRequest(userInfoRequest));
 
-                // Call the REST API of User Profile Service to create User Profile
-               // saveUserProfiles(userInfoRequest, user);
+                // Publish registered user details in to kafka
+                publishKafkaMessages(kafkaProperties, registeredUserDetails);
             }
         } catch (UserAlreadyExistsException userException) {
             log.debug("##### Current User is already exists ", userException);
@@ -98,14 +110,19 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Rest API through Feign Client to User Service
+     * Publish Message into Kafka
+     *
+     * @param kafkaProperties
+     * @param user
      */
-    private void saveUserProfiles(UserInfoRequest userInfoRequest, User user) {
-        // Building Rest API Request
-        userInfoRequest.setUserId(user.getUserId());
-
-        // Call the Rest API of User Profile Service'
-        userProfileClient.createUserProfileDetails(userInfoRequest);
+    private void publishKafkaMessages(Properties kafkaProperties, User user) {
+        GKafkaProducer<String, RegisterNewUserMessage> gKafkaProducer = new GKafkaProducer<>();
+        RegisterNewUserMessage regUserMessage = RegisterNewUserMessage.builder()
+                .userId(user.getUserId())
+                .email(user.getEmail())
+                .phoneNo(user.getPhoneNo())
+                .build();
+        gKafkaProducer.publishMessage(kafkaProperties, user.getUserId().toString(), regUserMessage);
     }
 
     @Override
